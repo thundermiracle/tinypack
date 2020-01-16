@@ -13,12 +13,12 @@ function graphToStr(depsGraph, entryFile) {
       return require(graph[moduleId].dependencies[relativePath]);
     }
 
-    const exports = {};
-    ;(function(require, exports, code) {
+    const module = { exports: {} };
+    ;(function(require, module, exports, code) {
       eval(code);
-    })(localRequire, exports, graph[moduleId].code);
+    })(localRequire, module, module.exports, graph[moduleId].code);
 
-    return exports;
+    return module.exports;
   }
 
   require('${entryFile}');

@@ -1,3 +1,3 @@
 # tinypack
 
-a simple implementation of bundle js files.
+a simple implementation of js files bundler.
